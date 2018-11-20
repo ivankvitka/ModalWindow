@@ -1,0 +1,130 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.container {
+  position: relative;
+  width: 40%;
+  height: 50%;
+
+  & .modal {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 100%;
+    min-width: 320px;
+    height: auto;
+    z-index: 2000;
+    visibility: hidden;
+    -webkit-backface-visibility: hidden;
+    -moz-backface-visibility: hidden;
+    backface-visibility: hidden;
+    -webkit-transform: translateX(-50%) translateY(-50%);
+    -moz-transform: translateX(-50%) translateY(-50%);
+    -ms-transform: translateX(-50%) translateY(-50%);
+    transform: translateX(-50%) translateY(-50%);
+    -webkit-perspective: 1000px;
+    -moz-perspective: 1000px;
+    perspective: 1000px;
+
+    &__content {
+      padding: 40px 20px 20px;
+      -webkit-transform-style: preserve-3d;
+      -moz-transform-style: preserve-3d;
+      transform-style: preserve-3d;
+      -webkit-transform: rotateY(-70deg);
+      -moz-transform: rotateY(-70deg);
+      -ms-transform: rotateY(-70deg);
+      transform: rotateY(-70deg);
+      background-color: $bg-color;
+    }
+
+    &__btn-close {
+      position: absolute;
+      top: 5px;
+      right: 5px;
+      width: 20px;
+      height: 20px;
+      text-align: center;
+      border: 1px solid $font-color;
+
+
+      &:hover {
+        border-color: $hover-color;
+
+        &::after {
+          color: $hover-color;
+        }
+      }
+
+      &::after {
+        content: 'X';
+        color: $font-color;
+      }
+    }
+
+    &__text {
+      font-size: 1em;
+      color: $font-color;
+    }
+
+    &__text--second {
+      font-size: 1.2em;
+      text-align: center;
+      margin-top: 20px;
+    }
+  }
+
+  &__checkbox {
+    display: none;
+
+    & + .container__btn {
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      padding: 5px 20px;
+      transform: translate(-50%);
+      color: $font-color;
+      background-color: $bg-color;
+
+      &:hover {
+        color: $hover-color;
+      }
+    }
+
+    &:checked ~ .modal {
+      visibility: visible;
+
+      & .modal__content {
+        animation-name: show-window;
+        animation-duration: 1s;
+        animation-fill-mode: forwards;
+        animation-direction: alternate;
+        animation-timing-function: ease;
+      }
+    }
+
+    &:checked + .container__btn {
+      opacity: 0;
+    }
+  }
+}
+
+@keyframes show-window {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+    transform: rotateY(0);
+  }
+}
