@@ -62,6 +62,7 @@ body {
 
 .container__btn-close:hover {
   border-color: #ffffff;
+  cursor: pointer;
 }
 
 .container__btn-close:hover::after {
@@ -102,6 +103,7 @@ body {
 
 .container__checkbox + .container__btn:hover {
   color: #ffffff;
+  cursor: pointer;
 }
 
 .container__checkbox:checked ~ .container__modal {

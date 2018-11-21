@@ -60,6 +60,7 @@ body {
 
     &:hover {
       border-color: $hover-color;
+      cursor: pointer;
 
       &::after {
         color: $hover-color;
@@ -98,6 +99,7 @@ body {
       background-color: $bg-color;
       &:hover {
         color: $hover-color;
+        cursor: pointer;
       }
     }
 

@@ -27,11 +27,8 @@ gulp.task('watch', ['browser-sync', 'sass'], function () {
 });
 
 gulp.task('build', function () {
-
-	gulp.src([
-		'app/css/*.css',
-	])
-		.pipe(gulp.dest('dest/css'))
-		gulp.src('app/*.html')
+	gulp.src('app/css/*.css')
+		.pipe(gulp.dest('dest/css'));
+	gulp.src('app/*.html')
 		.pipe(gulp.dest('dest'));
 });
