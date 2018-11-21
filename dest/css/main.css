@@ -17,7 +17,7 @@ body {
   height: 50%;
 }
 
-.container .modal {
+.container__modal {
   position: absolute;
   top: 50%;
   left: 50%;
@@ -38,7 +38,7 @@ body {
   perspective: 1000px;
 }
 
-.container .modal__content {
+.container__content {
   padding: 40px 20px 20px;
   -webkit-transform-style: preserve-3d;
   -moz-transform-style: preserve-3d;
@@ -50,7 +50,7 @@ body {
   background-color: #000030;
 }
 
-.container .modal__btn-close {
+.container__btn-close {
   position: absolute;
   top: 5px;
   right: 5px;
@@ -60,25 +60,25 @@ body {
   border: 1px solid #c0c0c0;
 }
 
-.container .modal__btn-close:hover {
+.container__btn-close:hover {
   border-color: #ffffff;
 }
 
-.container .modal__btn-close:hover::after {
+.container__btn-close:hover::after {
   color: #ffffff;
 }
 
-.container .modal__btn-close::after {
+.container__btn-close::after {
   content: 'X';
   color: #c0c0c0;
 }
 
-.container .modal__text {
+.container__text {
   font-size: 1em;
   color: #c0c0c0;
 }
 
-.container .modal__text--second {
+.container__text--second {
   font-size: 1.2em;
   text-align: center;
   margin-top: 20px;
@@ -90,11 +90,14 @@ body {
 
 .container__checkbox + .container__btn {
   position: absolute;
-  bottom: 0;
+  top: 50%;
   left: 50%;
+  width: 50%;
+  min-width: 185px;
   padding: 5px 20px;
-  transform: translate(-50%);
   color: #c0c0c0;
+  text-align: center;
+  transform: translate(-50%, -50%);
   background-color: #000030;
 }
 
@@ -102,11 +105,11 @@ body {
   color: #ffffff;
 }
 
-.container__checkbox:checked ~ .modal {
+.container__checkbox:checked ~ .container__modal {
   visibility: visible;
 }
 
-.container__checkbox:checked ~ .modal .modal__content {
+.container__checkbox:checked ~ .container__modal .container__content {
   animation-name: show-window;
   animation-duration: 1s;
   animation-fill-mode: forwards;

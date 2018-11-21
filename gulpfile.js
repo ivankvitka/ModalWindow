@@ -3,16 +3,16 @@ var gulp = require('gulp'),
 	browserSync = require('browser-sync'),
 	plumber = require("gulp-plumber");
 
-gulp.task("sass", function() {
+gulp.task("sass", function () {
 	gulp
 		.src("app/scss/**/*.scss")
 		.pipe(plumber())
-		.pipe(sass({ outputStyle: "expanded" }))
+		.pipe(sass({outputStyle: "expanded"}))
 		.pipe(gulp.dest("app/css"))
-		.pipe(browserSync.reload({ stream: true }));
+		.pipe(browserSync.reload({stream: true}));
 });
 
-gulp.task('browser-sync', function() {
+gulp.task('browser-sync', function () {
 	browserSync({
 		server: {
 			baseDir: 'app'
@@ -26,13 +26,12 @@ gulp.task('watch', ['browser-sync', 'sass'], function () {
 	gulp.watch('app/*.html', browserSync.reload);
 });
 
-gulp.task('build', function() {
+gulp.task('build', function () {
 
-	var buildCss = gulp.src([
+	gulp.src([
 		'app/css/*.css',
 	])
 		.pipe(gulp.dest('dest/css'))
-
-	var buildHtml = gulp.src('app/*.html')
+		gulp.src('app/*.html')
 		.pipe(gulp.dest('dest'));
 });
